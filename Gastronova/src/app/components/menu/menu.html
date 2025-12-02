@@ -1,0 +1,9 @@
+<section id="menu" class="menu">
+  <h2 class="menu__title">Menú Gastronómico</h2>
+  <ul class="menu__list">
+    <li *ngFor="let dish of dishes" class="menu__item">
+      <span>{{ dish.name }}</span>
+      <strong>{{ dish.price }}€</strong>
+    </li>
+  </ul>
+</section>

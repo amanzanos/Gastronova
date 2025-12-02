@@ -1,0 +1,130 @@
+/* src/app/components/footer/footer.scss */
+@use '../../../styles.scss' as vars;
+
+.footer {
+  background-color: vars.$color-dark;
+  color: vars.$color-light;
+  padding: 4rem 2rem;
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, vars.$color-accent 0%, transparent 70%);
+    opacity: 0.08;
+    animation: rotate 25s linear infinite;
+    pointer-events: none;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+
+    @media(min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+
+  &__info {
+    max-width: 400px;
+
+    &-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: vars.$color-accent;
+    }
+
+    &-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    a {
+      color: vars.$color-light;
+      text-decoration: none;
+      transition: color 0.3s, transform 0.3s;
+
+      &:hover {
+        color: vars.$color-secondary;
+        transform: translateX(5px);
+      }
+    }
+  }
+
+  &__contact {
+    font-size: 0.95rem;
+    line-height: 1.6;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+
+      i {
+        color: vars.$color-accent;
+      }
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background-color: vars.$color-accent;
+      color: vars.$color-light;
+      font-size: 1.2rem;
+      transition: transform 0.3s, background-color 0.3s;
+
+      &:hover {
+        transform: scale(1.2);
+        background-color: vars.$color-secondary;
+      }
+    }
+  }
+
+  &__copyright {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    color: lighten(vars.$color-light, 20%);
+  }
+}
+
+/* Animación de fondo radial */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

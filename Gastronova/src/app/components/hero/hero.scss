@@ -1,0 +1,89 @@
+/* src/app/components/hero/hero.scss */
+@use '../../../styles.scss' as vars;
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; // Ocupa toda la pantalla
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: vars.$color-light;
+  overflow: hidden;
+
+  /* Imagen de fondo */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4); // oscurece la imagen
+    z-index: 1;
+  }
+
+  /* Texto */
+  &__title {
+    position: relative;
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    z-index: 2;
+    animation: fadeInUp 1.5s ease forwards;
+  }
+
+  &__subtitle {
+    position: relative;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    font-style: italic;
+    z-index: 2;
+    animation: fadeInUp 2s ease forwards;
+  }
+
+  /* Animación tipo fuego usando pseudo-elementos */
+  &__fire {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    background: radial-gradient(circle, rgba(255,120,0,0.6) 0%, transparent 70%);
+    filter: blur(40px);
+    animation: flicker 3s infinite alternate;
+    z-index: 1;
+  }
+
+  /* Flecha para bajar */
+  &__arrow {
+    position: absolute;
+    bottom: 2rem;
+    font-size: 2.5rem;
+    color: vars.$color-accent;
+    animation: bounce 2s infinite;
+    cursor: pointer;
+    z-index: 2;
+    transition: color 0.3s;
+
+    &:hover {
+      color: vars.$color-secondary;
+    }
+  }
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes flicker {
+  0% { opacity: 0.4; transform: scaleX(1.05); }
+  50% { opacity: 0.7; transform: scaleX(1.1); }
+  100% { opacity: 0.5; transform: scaleX(1.03); }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-15px); }
+  60% { transform: translateY(-8px); }
+}

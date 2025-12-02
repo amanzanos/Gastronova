@@ -1,0 +1,82 @@
+/* src/app/components/header/header.scss */
+@use '../../../styles.scss' as vars;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(vars.$color-dark, 0.95);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: padding 0.3s, background 0.3s;
+
+  &__logo {
+    width: 160px;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.05) rotate(-2deg);
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+
+    &-item {
+      color: vars.$color-light;
+      text-decoration: none;
+      position: relative;
+      font-size: 1rem;
+      transition: color 0.3s;
+
+      &:hover {
+        color: vars.$color-accent;
+      }
+
+      /* Underline animada */
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 0%;
+        height: 2px;
+        background: vars.$color-accent;
+        transition: width 0.3s ease-in-out;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+
+  /* Efecto al hacer scroll: header más compacto */
+  &.header--scrolled {
+    padding: 1rem 3rem;
+    background: rgba(vars.$color-dark, 0.98);
+  }
+}
+
+/* Responsive: menú hamburguesa en móviles */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem 2rem;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__nav {
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+  }
+}
