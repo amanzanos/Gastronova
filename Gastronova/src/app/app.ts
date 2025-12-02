@@ -8,21 +8,22 @@ import { Hero } from './components/hero/hero';
 import { Menu } from './components/menu/menu';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { History } from './components/history/history';
-
+import { OurMenus } from './components/our-menus/our-menus';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     CommonModule,
-    Header,
+    FontAwesomeModule,
+
     Hero,
+    OurMenus,
+    Header,
     Menu,
     Gallery,
     Footer,
-    FontAwesomeModule,
-    History
-
+    History,
   ],
   templateUrl: './app.html',
 })

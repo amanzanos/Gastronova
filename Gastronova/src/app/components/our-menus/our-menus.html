@@ -1,0 +1,107 @@
+<section id="our_menus" class="our_menus">
+  <div class="our_menus__container">
+    <div class="our_menus__image">
+      <img src="/assets/menus/menu1.jpg" alt="Plato gourmet" class="our_menus__img" />
+    </div>
+    <div class="our_menus__text">
+      <h2 class="our_menus__title">Nuestros Menús</h2>
+      <p class="our_menus__description">
+        En Gastronova elaboramos cada menú con pasión y creatividad. Seleccionamos cuidadosamente
+        los ingredientes más frescos y trabajamos con técnicas de cocina de autor para ofrecer
+        experiencias únicas que despiertan todos los sentidos.
+      </p>
+      <!-- SVG de firma -->
+      <div class="our_menus__signature">
+        <svg viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
+          <!-- Definición de filtros para efecto de tinta -->
+          <defs>
+            <filter id="roughen">
+              <feTurbulence
+                type="fractalNoise"
+                baseFrequency="0.08"
+                numOctaves="2"
+                result="noise"
+              />
+              <feDisplacementMap
+                in="SourceGraphic"
+                in2="noise"
+                scale="1.5"
+                xChannelSelector="R"
+                yChannelSelector="G"
+              />
+            </filter>
+          </defs>
+
+          <!-- Firma estilo rúbrica adulta -->
+          <g filter="url(#roughen)">
+            <!-- Trazo inicial ascendente -->
+            <path
+              d="M 30 90 Q 40 85 50 80 Q 60 75 70 78"
+              stroke="#000"
+              fill="none"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+
+            <!-- Curva principal compleja -->
+            <path
+              d="M 70 78 Q 85 82 95 75 Q 110 65 125 70 Q 140 75 155 65 Q 165 58 175 62 Q 190 68 200 60"
+              stroke="#000"
+              fill="none"
+              stroke-width="2.8"
+              stroke-linecap="round"
+            />
+
+            <!-- Bucle decorativo central -->
+            <path
+              d="M 200 60 Q 210 50 220 58 Q 230 68 220 78 Q 210 88 205 85"
+              stroke="#000"
+              fill="none"
+              stroke-width="2.6"
+              stroke-linecap="round"
+            />
+
+            <!-- Trazo descendente con ondulación -->
+            <path
+              d="M 205 85 Q 215 80 225 85 Q 240 92 255 85 Q 270 78 285 82"
+              stroke="#000"
+              fill="none"
+              stroke-width="2.4"
+              stroke-linecap="round"
+            />
+
+            <!-- Final con flourish -->
+            <path
+              d="M 285 82 Q 295 78 305 82 Q 320 88 330 80 Q 340 72 350 75"
+              stroke="#000"
+              fill="none"
+              stroke-width="2.2"
+              stroke-linecap="round"
+            />
+
+            <!-- Trazo inferior cruzado (característico de firmas) -->
+            <path
+              d="M 60 95 Q 120 88 180 92 Q 240 96 300 90"
+              stroke="#000"
+              fill="none"
+              stroke-width="2.8"
+              stroke-linecap="round"
+            />
+
+            <!-- Rúbrica final enfática -->
+            <path
+              d="M 310 85 Q 315 70 325 75 Q 335 82 345 78 L 355 75"
+              stroke="#000"
+              fill="none"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+
+            <!-- Punto final -->
+            <circle cx="358" cy="73" r="2" fill="#000" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
