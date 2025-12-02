@@ -6,6 +6,8 @@ import { Footer } from './components/footer/footer';
 import { Gallery } from './components/gallery/gallery';
 import { Hero } from './components/hero/hero';
 import { Menu } from './components/menu/menu';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { History } from './components/history/history';
 
 
 @Component({
@@ -17,7 +19,9 @@ import { Menu } from './components/menu/menu';
     Hero,
     Menu,
     Gallery,
-    Footer
+    Footer,
+    FontAwesomeModule,
+    History
 
   ],
   templateUrl: './app.html',
