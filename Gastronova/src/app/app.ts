@@ -1,3 +1,4 @@
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 
@@ -6,7 +7,6 @@ import { Footer } from './components/footer/footer';
 import { Gallery } from './components/gallery/gallery';
 import { Hero } from './components/hero/hero';
 import { Menu } from './components/menu/menu';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { History } from './components/history/history';
 import { OurMenus } from './components/our-menus/our-menus';
 
@@ -16,7 +16,6 @@ import { OurMenus } from './components/our-menus/our-menus';
   imports: [
     CommonModule,
     FontAwesomeModule,
-
     Hero,
     OurMenus,
     Header,

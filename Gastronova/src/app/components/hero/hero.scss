@@ -1,88 +1,105 @@
-/* src/app/components/hero/hero.scss */
-@use '../../../styles.scss' as vars;
-
+/* ==== HERO GENERAL ==== */
 .hero {
   position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  color: #fff;
+}
 
-  &__video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-    z-index: 0;
-    filter: brightness(0.5);
-  }
+/* ==== VIDEO DE FONDO ==== */
+.video-fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.55);
+  z-index: 0;
+}
 
-  &__overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.4);
-    z-index: 1;
-  }
+/* ==== OVERLAY EN NEGRO TRANSPARENTE ==== */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
 
-  &__content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-  }
+/* ==== CONTENIDO CENTRAL ==== */
+.contenido {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+  animation: fadeIn 2s ease-out forwards;
+}
 
-  /* H1 animado */
-  &__title {
-    font-family: 'Cinzel', serif;  /* elegante, premium */
-    font-size: 5rem;
-    color: vars.$color-accent;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    animation: hueShift 6s infinite alternate, floatUpDown 3s ease-in-out infinite;
-    text-shadow: 0 0 15px rgba(255,200,150,0.6), 0 0 30px rgba(255,100,50,0.4);
-  }
+/* LOGO */
+.logo {
+  width: 180px;
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.4));
+  animation: floatLogo 4s ease-in-out infinite;
+}
 
-  /* P debajo con estilo distinto */
-  &__subtitle {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    color: vars.$color-light;
-    margin-top: 1rem;
-    font-style: italic;
-    opacity: 0;
-    animation: fadeInUp 2s ease forwards 1s; /* aparece después del h1 */
-  }
+/* CONTENEDOR DE TEXTOS */
+.textos h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 4.5rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  color: #e8c097;
+  text-shadow: 0 0 15px rgba(255,200,150,0.6), 0 0 30px rgba(255,100,50,0.4);
+  animation: titleGlow 5s ease-in-out infinite alternate;
+}
 
-  &__arrow {
-    position: absolute;
-    bottom: 2rem;
-    font-size: 2.5rem;
-    color: vars.$color-accent;
-    animation: bounce 2s infinite;
-    cursor: pointer;
+.textos p {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  margin-top: .5rem;
+  opacity: 0;
+  animation: fadeInUp 1.8s ease forwards 1.2s;
+}
 
-    &:hover {
-      color: vars.$color-secondary;
-    }
+/* ==== FLECHA ABAJO ==== */
+.flecha-abajo {
+  position: absolute;
+  bottom: 2rem;
+  z-index: 2;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 3rem;
+  color: #e8c097;
+  animation: bounce 2s infinite;
+
+  &:hover {
+    color: #ffffff;
+    transform: scale(1.1);
   }
 }
 
-/* Animaciones */
-@keyframes floatUpDown {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+/* ==== ANIMACIONES ==== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInUp {
   0% { opacity: 0; transform: translateY(30px); }
   100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatLogo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
 @keyframes bounce {
@@ -91,9 +108,20 @@
   60% { transform: translateY(-6px); }
 }
 
-/* Animación de color de texto h1 */
-@keyframes hueShift {
-  0% { filter: hue-rotate(0deg); }
-  50% { filter: hue-rotate(30deg); }
-  100% { filter: hue-rotate(0deg); }
+@keyframes titleGlow {
+  0%   { text-shadow: 0 0 15px rgba(255,200,150,0.6); }
+  100% { text-shadow: 0 0 35px rgba(255,180,120,0.9); }
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+  .textos h1 {
+    font-size: 3rem;
+  }
+  .textos p {
+    font-size: 1.3rem;
+  }
+  .logo {
+    width: 140px;
+  }
 }
