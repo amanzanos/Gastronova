@@ -1,0 +1,117 @@
+@use '../../../styles.scss' as vars;
+
+.our_menus {
+  padding: 6rem 2rem;
+  background-color: #ffffff; // fondo blanco elegante
+  color: #111111; // texto negro sofisticado
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__image {
+    flex: 1 1 400px;
+
+    .our_menus__img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); // sombra más sutil y elegante
+      transform: translateX(-20px);
+      opacity: 0;
+      animation: slideInLeft 1s ease forwards;
+    }
+  }
+
+  &__text {
+    flex: 1 1 400px;
+    max-width: 600px;
+
+    .our_menus__title {
+      font-family: 'Cinzel', serif;
+      font-size: 2.8rem;
+      color: #111111;
+      margin-bottom: 1.5rem;
+      position: relative;
+
+      &::after {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 3px;
+        background: #333333; // línea sobria
+        margin-top: 0.5rem;
+        border-radius: 2px;
+        animation: slideIn 1s ease forwards;
+      }
+    }
+
+    .our_menus__description {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      color: #222222;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards 0.3s;
+    }
+
+    .our_menus__signature svg {
+      stroke: #000000; /* color negro */
+      stroke-width: 2.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-dasharray: 600; /* longitud aproximada del trazo */
+      stroke-dashoffset: 600; /* inicio “invisible” */
+      animation: writeSignature 4s ease-in-out forwards;
+    }
+
+    @keyframes writeSignature {
+      0% {
+        stroke-dashoffset: 600;
+      }
+      50% {
+        stroke-dashoffset: 300;
+      }
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+  }
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 50px;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

@@ -1,9 +1,37 @@
 <section id="menu" class="menu">
-  <h2 class="menu__title">Menú Gastronómico</h2>
-  <ul class="menu__list">
-    <li *ngFor="let dish of dishes" class="menu__item">
-      <span>{{ dish.name }}</span>
-      <strong>{{ dish.price }}€</strong>
-    </li>
-  </ul>
+
+  <div class="menu__cards">
+    <!-- Menú Degustación -->
+    <div class="menu__card"
+         [style.backgroundImage]="'url(' + menuDegustacion.image + ')'"
+         (click)="openPDF(menuDegustacion.pdf)">
+      <div class="menu__overlay">
+        <h3>{{ menuDegustacion.title }}</h3>
+        <p>{{ menuDegustacion.description }}</p>
+        <span class="menu__price">{{ menuDegustacion.price }}</span>
+      </div>
+    </div>
+
+    <!-- Menú Navidad -->
+    <div class="menu__card"
+         [style.backgroundImage]="'url(' + menuNavidad.image + ')'"
+         (click)="openPDF(menuNavidad.pdf)">
+      <div class="menu__overlay">
+        <h3>{{ menuNavidad.title }}</h3>
+        <p>{{ menuNavidad.description }}</p>
+        <span class="menu__price">{{ menuNavidad.price }}</span>
+      </div>
+    </div>
+
+    <!-- Cata de Vinos -->
+    <div class="menu__card"
+         [style.backgroundImage]="'url(' + menuCata.image + ')'"
+         (click)="openPDF(menuCata.pdf)">
+      <div class="menu__overlay">
+        <h3>{{ menuCata.title }}</h3>
+        <p>{{ menuCata.description }}</p>
+        <span class="menu__price">{{ menuCata.price }}</span>
+      </div>
+    </div>
+  </div>
 </section>
