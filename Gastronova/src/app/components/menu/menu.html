@@ -1,36 +1,29 @@
-<section id="menu" class="menu">
-
+<section class="menu">
   <div class="menu__cards">
-    <!-- Menú Degustación -->
-    <div class="menu__card"
-         [style.backgroundImage]="'url(' + menuDegustacion.image + ')'"
-         (click)="openPDF(menuDegustacion.pdf)">
+    <div class="menu__card" [style.backgroundImage]="'url(' + menuDegustacion.image + ')'">
       <div class="menu__overlay">
         <h3>{{ menuDegustacion.title }}</h3>
         <p>{{ menuDegustacion.description }}</p>
         <span class="menu__price">{{ menuDegustacion.price }}</span>
+        <a class="menu__link" (click)="openPDF(menuDegustacion.pdf)">Ver más</a>
       </div>
     </div>
 
-    <!-- Menú Navidad -->
-    <div class="menu__card"
-         [style.backgroundImage]="'url(' + menuNavidad.image + ')'"
-         (click)="openPDF(menuNavidad.pdf)">
+    <div class="menu__card" [style.backgroundImage]="'url(' + menuNavidad.image + ')'">
       <div class="menu__overlay">
         <h3>{{ menuNavidad.title }}</h3>
         <p>{{ menuNavidad.description }}</p>
         <span class="menu__price">{{ menuNavidad.price }}</span>
+        <a class="menu__link" (click)="openPDF(menuNavidad.pdf)">Ver más</a>
       </div>
     </div>
 
-    <!-- Cata de Vinos -->
-    <div class="menu__card"
-         [style.backgroundImage]="'url(' + menuCata.image + ')'"
-         (click)="openPDF(menuCata.pdf)">
+    <div class="menu__card" [style.backgroundImage]="'url(' + menuCata.image + ')'">
       <div class="menu__overlay">
         <h3>{{ menuCata.title }}</h3>
         <p>{{ menuCata.description }}</p>
         <span class="menu__price">{{ menuCata.price }}</span>
+        <a class="menu__link" (click)="openPDF(menuCata.pdf)">Ver más</a>
       </div>
     </div>
   </div>

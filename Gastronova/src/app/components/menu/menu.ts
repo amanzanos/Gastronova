@@ -10,7 +10,7 @@ export class Menu {
     title: 'Menú Degustación',
     description: 'Una selección de platos que muestran la esencia de nuestra cocina gourmet.',
     price: '65€',
-    image: 'assets/menus/degustacion.jpg',
+    image: 'https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80',
     pdf: 'assets/menus/degustacion.pdf'
   };
 
@@ -18,7 +18,7 @@ export class Menu {
     title: 'Menú Navidad',
     description: 'Celebraciones navideñas con recetas exclusivas y festivas.',
     price: '80€',
-    image: 'assets/menus/navidad.jpg',
+    image: 'https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80',
     pdf: 'assets/menus/navidad.pdf'
   };
 
@@ -26,7 +26,7 @@ export class Menu {
     title: 'Cata de Vinos',
     description: 'Maridaje de vinos selectos con aperitivos gourmet.',
     price: '50€',
-    image: 'assets/menus/cata.jpg',
+    image: 'https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80',
     pdf: 'assets/menus/cata.pdf'
   };
 
