@@ -14,11 +14,13 @@
   }
 
   &__image {
-    flex: 1 1 400px;
+    flex: 1 1 300px;
 
     .our_menus__img {
       width: 100%;
       border-radius: 12px;
+      max-width: 46.875em;
+      max-height: 25em;
       object-fit: cover;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); // sombra más sutil y elegante
       transform: translateX(-20px);

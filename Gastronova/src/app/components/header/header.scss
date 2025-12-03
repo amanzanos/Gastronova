@@ -1,27 +1,26 @@
-/* src/app/components/header/header.scss */
-@use '../../../styles.scss' as vars;
-
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(vars.$color-dark, 0.95);
+  box-sizing: border-box;
+  padding: 1.2rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 3rem;
   z-index: 1000;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: padding 0.3s, background 0.3s;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  transition: padding 0.3s, background 0.3s, color 0.3s;
 
   &__logo {
-    width: 160px;
-    transition: transform 0.3s;
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
 
     &:hover {
-      transform: scale(1.05) rotate(-2deg);
+      transform: scale(1.05);
     }
   }
 
@@ -29,29 +28,31 @@
     display: flex;
     gap: 2rem;
     font-family: 'Playfair Display', serif;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 500;
+    flex-wrap: wrap;
+    max-width: 100%;
 
     &-item {
-      color: vars.$color-light;
-      text-decoration: none;
       position: relative;
-      font-size: 1rem;
-      transition: color 0.3s;
+      color: #fff;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.3s ease;
 
       &:hover {
-        color: vars.$color-accent;
+        color: #ddd;
       }
 
-      /* Underline animada */
       &::after {
         content: '';
         position: absolute;
+        bottom: -3px;
         left: 0;
-        bottom: -5px;
-        width: 0%;
+        width: 0;
         height: 2px;
-        background: vars.$color-accent;
-        transition: width 0.3s ease-in-out;
+        background: #fff;
+        transition: width 0.3s ease;
       }
 
       &:hover::after {
@@ -60,23 +61,72 @@
     }
   }
 
-  /* Efecto al hacer scroll: header más compacto */
-  &.header--scrolled {
-    padding: 1rem 3rem;
-    background: rgba(vars.$color-dark, 0.98);
+  &__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 18px;
+    cursor: pointer;
+
+    span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+  }
+
+  /* Efecto scroll: nav menos invasivo */
+  &.scrolled {
+    padding: 0.8rem 2rem;
+    background: rgba(0, 0, 0, 0.85); /* fondo más sólido */
+
+    &__nav-item {
+      color: #eee; /* letras un poco más suaves */
+    }
+
+    &__burger span {
+      background: #eee;
+    }
   }
 }
 
-/* Responsive: menú hamburguesa en móviles */
+/* Responsive */
 @media (max-width: 768px) {
   .header {
-    padding: 1rem 2rem;
-    flex-direction: row;
-    justify-content: space-between;
+    padding: 1rem 1.5rem;
 
     &__nav {
-      gap: 1rem;
-      font-size: 0.95rem;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 60%;
+      height: 100vh;
+      background: rgba(0,0,0,0.95);
+      flex-direction: column;
+      gap: 2rem;
+      padding: 5rem 1.5rem;
+      transition: right 0.3s ease;
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+
+    &__nav.open {
+      right: 0;
+    }
+
+    &__burger {
+      display: flex;
     }
   }
+}
+
+/* Evitar overflow horizontal */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }

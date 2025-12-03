@@ -1,8 +1,15 @@
-<header class="header">
-<img src="/assets/logo-gastronova.svg" alt="Gastronova" class="header__logo" />
-<nav class="header__nav">
-<a class="header__nav-item" href="#menu">Menú</a>
-<a class="header__nav-item" href="#galeria">Galería</a>
-<a class="header__nav-item" href="#reservas">Reservas</a>
-</nav>
+<header [class.scrolled]="scrolled" class="header">
+  <img src="assets/logo.avif" alt="Logo" class="header__logo" />
+
+  <nav [class.open]="menuOpen" class="header__nav">
+    <a class="header__nav-item" href="#home">Home</a>
+    <a class="header__nav-item" href="#menu">Menú</a>
+    <a class="header__nav-item" href="#contact">Contacto</a>
+  </nav>
+
+  <div class="header__burger" (click)="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </header>

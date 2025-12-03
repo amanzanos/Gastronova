@@ -1,77 +1,65 @@
-/* src/app/components/gallery/gallery.scss */
-@use '../../../styles.scss' as vars;
+.gallery__carousel {
+  overflow: hidden;
+  width: 100%;
+  background: #fff;
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center;
 
-.gallery {
-  padding: 6rem 2rem;
-  background-color: vars.$color-light;
-  text-align: center;
-
-  &__title {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    color: vars.$color-dark;
-    margin-bottom: 3rem;
-    position: relative;
-
-    &::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 3px;
-      background-color: vars.$color-accent;
-      margin: 1rem auto 0;
-      border-radius: 2px;
-      animation: growLine 1s ease forwards;
-    }
+  .gallery__track {
+    display: flex;
+    transition: transform 0.7s ease-in-out;
+    gap: 2rem;
   }
 
-  &__grid {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    justify-items: center;
-  }
-
-  &__item {
-    position: relative;
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.5s ease, filter 0.5s ease;
+  .gallery__card {
+    flex: 0 0 300px; // cada carta ocupa 300px
+    border-radius: 15px;
+    background: #f9f9f9;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.5s;
 
     &:hover {
-      transform: scale(1.05) rotate(-1deg);
-      filter: brightness(1.1);
-      cursor: pointer;
+      transform: scale(1.05);
     }
 
-    /* Icono Font Awesome sobre la imagen */
-    &::after {
-      content: '\f002'; /* unicode de fa-search */
-      font-family: 'Font Awesome 5 Free';
-      font-weight: 900;
-      font-size: 2rem;
-      color: vars.$color-light;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0);
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      opacity: 0;
-      pointer-events: none;
+    .gallery__img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
     }
 
-    &:hover::after {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 1;
+    .gallery__info {
+      padding: 1rem;
+      text-align: center;
+
+      h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 0.5rem;
+      }
+
+      span {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #111;
+      }
     }
   }
 }
 
-/* Animación línea bajo título */
-@keyframes growLine {
-  0% { width: 0; }
-  100% { width: 60px; }
+@media (max-width: 768px) {
+  .gallery__card {
+    flex: 0 0 250px;
+    .gallery__img {
+      height: 180px;
+    }
+  }
 }

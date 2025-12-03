@@ -1,8 +1,17 @@
 <section id="galeria" class="gallery">
-  <h2 class="gallery__title">Galería</h2>
-  <div class="gallery__grid">
-    <img src="/assets/dish1.jpg" class="gallery__item" />
-    <img src="/assets/dish2.jpg" class="gallery__item" />
-    <img src="/assets/dish3.jpg" class="gallery__item" />
+  <h2 class="gallery__title">Nuestros Platos</h2>
+  <div class="gallery__carousel">
+    <div class="gallery__track" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+      @for (plato of platos; track plato.title) {
+      <div class="gallery__card" (click)="goToProducto(plato.url)">
+        <img [src]="plato.image" [alt]="plato.title" class="gallery__img" />
+        <div class="gallery__info">
+          <h3>{{ plato.title }}</h3>
+          <p>{{ plato.description }}</p>
+          <span>{{ plato.price }}</span>
+        </div>
+      </div>
+      }
+    </div>
   </div>
 </section>
