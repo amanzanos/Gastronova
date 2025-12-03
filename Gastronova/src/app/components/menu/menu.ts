@@ -12,7 +12,7 @@ export class Menu {
     price: '65€',
     image:
       'https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=800&q=80',
-    pdf: 'assets/menus/degustacion.pdf',
+    pdf: 'assets/CartaGastroNova.pdf',
   };
 
   menuNavidad = {
@@ -21,7 +21,7 @@ export class Menu {
     price: '80€',
     image:
       'https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=800&q=80',
-    pdf: 'assets/menus/navidad.pdf',
+    pdf: 'assets/CartaGastroNova.pdf',
   };
 
   menuCata = {
@@ -29,7 +29,7 @@ export class Menu {
     description: 'Maridaje de vinos selectos con aperitivos gourmet.',
     price: '50€',
     image: 'https://i.pinimg.com/474x/fc/ce/22/fcce22019199c8f30424bf6efefc2c90.jpg',
-    pdf: 'assets/menus/cata.pdf',
+    pdf: 'assets/CartaGastroNova.pdf',
   };
 
   // Método para abrir PDF
