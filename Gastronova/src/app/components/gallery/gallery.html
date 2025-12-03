@@ -1,6 +1,9 @@
 <section id="galeria" class="gallery">
   <h2 class="gallery__title">Nuestros Platos</h2>
   <div class="gallery__carousel">
+    <button class="gallery__btn gallery__btn--prev" (click)="prevSlide()" aria-label="Anterior">
+      ‹
+    </button>
     <div class="gallery__track" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
       @for (plato of platos; track plato.title) {
       <div class="gallery__card" (click)="goToProducto(plato.url)">
@@ -13,5 +16,18 @@
       </div>
       }
     </div>
+    <button class="gallery__btn gallery__btn--next" (click)="nextSlide()" aria-label="Siguiente">
+      ›
+    </button>
+  </div>
+  <div class="gallery__dots">
+    @for (plato of platos; track $index) {
+      <button
+        class="gallery__dot"
+        [class.gallery__dot--active]="currentIndex === $index"
+        (click)="goToSlide($index)"
+        [attr.aria-label]="'Ir a plato ' + ($index + 1)">
+      </button>
+    }
   </div>
 </section>
