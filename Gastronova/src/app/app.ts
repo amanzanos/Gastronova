@@ -9,6 +9,7 @@ import { Menu } from './components/menu/menu';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { History } from './components/history/history';
 import { OurMenus } from './components/our-menus/our-menus';
+import { Reservas } from './components/reservas/reservas';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,7 @@ import { OurMenus } from './components/our-menus/our-menus';
     Gallery,
     Footer,
     History,
+    Reservas,
   ],
   templateUrl: './app.html',
 })

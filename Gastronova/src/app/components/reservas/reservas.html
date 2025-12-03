@@ -1,0 +1,121 @@
+<div class="reservas-container">
+  <div class="calendario-section">
+    <div class="calendario-header">
+      <button class="btn-nav" (click)="mesAnterior()">←</button>
+      <h2>{{ nombresMeses[mesActual.getMonth()] }} {{ mesActual.getFullYear() }}</h2>
+      <button class="btn-nav" (click)="mesSiguiente()">→</button>
+    </div>
+
+    <div class="calendario-grid">
+      <div class="dia-nombre" *ngFor="let dia of nombresDias">{{ dia }}</div>
+      
+      <div 
+        *ngFor="let fecha of diasDelMes"
+        class="dia-celda"
+        [class.otro-mes]="!esMesActual(fecha)"
+        [class.hoy]="esDiaActual(fecha)"
+        [class.seleccionado]="esFechaSeleccionada(fecha)"
+        [class.pasado]="esFechaPasada(fecha)"
+        [class.con-reservas]="tieneReservas(fecha)"
+        (click)="seleccionarDia(fecha)">
+        <span class="numero-dia">{{ fecha.getDate() }}</span>
+        <span class="indicador-reserva" *ngIf="tieneReservas(fecha)">●</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="formulario-section" *ngIf="mostrarFormulario">
+    <div class="mensaje-exito" *ngIf="reservaExitosa">
+      ✓ ¡Reserva realizada con éxito!
+    </div>
+
+    <h3>Reserva para {{ fechaSeleccionada | date:'dd/MM/yyyy' }}</h3>
+
+    <div class="reservas-existentes" *ngIf="getReservasDelDia().length > 0">
+      <h4>Reservas de este día:</h4>
+      <div class="reserva-item" *ngFor="let reserva of getReservasDelDia()">
+        <strong>{{ reserva.hora }}</strong> - {{ reserva.nombre }} ({{ reserva.personas }} personas)
+      </div>
+    </div>
+
+    <form class="formulario-reserva" (ngSubmit)="realizarReserva()">
+      <div class="horarios-grid">
+        <button
+          type="button"
+          *ngFor="let horario of horariosDisponibles"
+          class="btn-horario"
+          [class.seleccionado]="horaSeleccionada === horario.hora"
+          [class.no-disponible]="!horario.disponible"
+          [disabled]="!horario.disponible"
+          (click)="horaSeleccionada = horario.hora">
+          {{ horario.hora }}
+        </button>
+      </div>
+
+      <div class="form-group">
+        <label>Nombre completo *</label>
+        <input 
+          type="text" 
+          [(ngModel)]="nombreCliente" 
+          name="nombre"
+          placeholder="Tu nombre"
+          required>
+      </div>
+
+      <div class="form-group">
+        <label>Email *</label>
+        <input 
+          type="email" 
+          [(ngModel)]="emailCliente" 
+          name="email"
+          placeholder="tu@email.com"
+          required>
+      </div>
+
+      <div class="form-group">
+        <label>Teléfono</label>
+        <input 
+          type="tel" 
+          [(ngModel)]="telefonoCliente" 
+          name="telefono"
+          placeholder="+34 600 000 000">
+      </div>
+
+      <div class="form-group">
+        <label>Número de personas *</label>
+        <select [(ngModel)]="numeroPersonas" name="personas" required>
+          <option [value]="1">1 persona</option>
+          <option [value]="2">2 personas</option>
+          <option [value]="3">3 personas</option>
+          <option [value]="4">4 personas</option>
+          <option [value]="5">5 personas</option>
+          <option [value]="6">6 personas</option>
+          <option [value]="7">7 personas</option>
+          <option [value]="8">8 personas</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Notas adicionales</label>
+        <textarea 
+          [(ngModel)]="notasReserva" 
+          name="notas"
+          placeholder="Alergias, preferencias de mesa, etc."
+          rows="3"></textarea>
+      </div>
+
+      <div class="botones-accion">
+        <button type="button" class="btn-cancelar" (click)="cancelarReserva()">
+          Cancelar
+        </button>
+        <button type="submit" class="btn-reservar">
+          Confirmar Reserva
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="instrucciones" *ngIf="!mostrarFormulario">
+    <p>📅 Selecciona un día en el calendario para hacer tu reserva</p>
+  </div>
+</div>
